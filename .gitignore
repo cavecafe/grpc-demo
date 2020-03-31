@@ -1,0 +1,7 @@
+csharp/client/.vs/
+csharp/client/bin/Debug/
+csharp/client/obj/
+csharp/service/.vs/
+csharp/service/bin/
+csharp/service/obj/
+csharp/.vs/

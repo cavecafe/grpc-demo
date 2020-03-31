@@ -1,0 +1,71 @@
+/*
+MIT License
+
+Copyright (c) 2020 Thomas Kim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+syntax = "proto3";
+
+option csharp_namespace = "library_service";
+
+package book;
+
+service Library {
+  rpc BookByCode (BookCode) returns (Book);
+  rpc BooksByTitle (BookTitle) returns (BookList);
+  rpc BooksByAuthor (BookAuthor) returns (BookList);
+}
+
+enum Category {
+  None = 0;
+  Fiction = 1;
+  Essay = 2;
+  Magazine = 3;
+  Comic = 4;
+  Science = 5;
+  Computer = 6;
+}
+
+message Book {
+    string code = 1;
+    string title = 2;
+    string author = 3;
+    Category category = 4;
+    double price = 5;
+    string shelf = 6;
+    int32 count = 7;
+}
+
+message BookList {
+    repeated Book books = 1;
+}
+
+message BookCode {
+    string code = 1;
+}
+
+message BookTitle {
+    string title = 1;
+}
+
+message BookAuthor {
+    string author = 1;
+}
