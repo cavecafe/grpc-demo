@@ -5,3 +5,7 @@ csharp/service/.vs/
 csharp/service/bin/
 csharp/service/obj/
 csharp/.vs/
+java/library-service/.gradle
+java/library-service/.idea
+java/library-service/build
+java/library-service/gradle/wrapper

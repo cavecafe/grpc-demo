@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option csharp_namespace = "library_service";
+
+package book;
+
+service Library {
+    rpc BookByCode (BookCode) returns (Book);
+    rpc BooksByTitle (BookTitle) returns (BookList);
+    rpc BooksByAuthor (BookAuthor) returns (BookList);
+}
+
+enum Category {
+    None = 0;
+    Fiction = 1;
+    Essay = 2;
+    Magazine = 3;
+    Comic = 4;
+    Science = 5;
+    Computer = 6;
+}
+
+message Book {
+    string code = 1;
+    string title = 2;
+    string author = 3;
+    Category category = 4;
+    double price = 5;
+    string shelf = 6;
+    int32 count = 7;
+}
+
+message BookList {
+    repeated Book books = 1;
+}
+
+message BookCode {
+    string code = 1;
+}
+
+message BookTitle {
+    string title = 1;
+}
+
+message BookAuthor {
+    string author = 1;
+}
